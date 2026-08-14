@@ -1,0 +1,1440 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bhagsar City Directory | Rehzaf John</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    color:#172033;
+}
+
+header{
+    background:linear-gradient(135deg,#075985,#2563eb);
+    color:white;
+    padding:30px 7%;
+    text-align:center;
+}
+
+header h1{
+    font-size:34px;
+    margin-bottom:8px;
+}
+
+header p{
+    margin:5px;
+}
+
+.developer{
+    font-size:14px;
+    opacity:.9;
+}
+
+nav{
+    background:white;
+    padding:15px 6%;
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+nav a{
+    color:#172033;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#2563eb;
+}
+
+.hero{
+    text-align:center;
+    padding:60px 20px;
+    background:linear-gradient(135deg,#e0f2fe,#eff6ff);
+}
+
+.hero h2{
+    font-size:34px;
+    margin-bottom:12px;
+}
+
+.hero p{
+    color:#526071;
+    margin-bottom:25px;
+}
+
+.search-box{
+    max-width:750px;
+    margin:auto;
+    display:flex;
+    background:white;
+    padding:7px;
+    border-radius:50px;
+    box-shadow:0 5px 20px rgba(0,0,0,.12);
+}
+
+.search-box input{
+    flex:1;
+    border:none;
+    outline:none;
+    padding:15px 20px;
+    font-size:16px;
+    border-radius:50px;
+}
+
+.search-box button{
+    border:none;
+    background:#2563eb;
+    color:white;
+    padding:0 25px;
+    border-radius:50px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+section{
+    padding:50px 7%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.section-title h2{
+    font-size:28px;
+    margin-bottom:8px;
+}
+
+.section-title p{
+    color:#64748b;
+}
+
+.categories{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+    gap:15px;
+}
+
+.category{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    cursor:pointer;
+    box-shadow:0 3px 12px rgba(0,0,0,.07);
+    transition:.3s;
+}
+
+.category:hover{
+    transform:translateY(-5px);
+    background:#eff6ff;
+}
+
+.category .icon{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.business-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:22px;
+}
+
+.business-card{
+    background:white;
+    border-radius:18px;
+    padding:22px;
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.business-card:hover{
+    transform:translateY(-5px);
+}
+
+.business-icon{
+    width:60px;
+    height:60px;
+    background:#dbeafe;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.business-card h3{
+    margin-bottom:7px;
+}
+
+.category-name{
+    color:#2563eb;
+    font-size:14px;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.info{
+    color:#5d6878;
+    margin:8px 0;
+    font-size:14px;
+}
+
+.rating{
+    color:#f59e0b;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+.buttons{
+    display:flex;
+    gap:8px;
+    margin-top:15px;
+    flex-wrap:wrap;
+}
+
+.buttons a,
+.buttons button{
+    flex:1;
+    min-width:100px;
+    text-align:center;
+    padding:10px;
+    border-radius:8px;
+    text-decoration:none;
+    border:none;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.call-btn{
+    background:#16a34a;
+    color:white;
+}
+
+.whatsapp-btn{
+    background:#25d366;
+    color:white;
+}
+
+.location-btn{
+    background:#2563eb;
+    color:white;
+}
+
+.contact-btn{
+    background:#7c3aed;
+    color:white;
+}
+
+.add-business{
+    background:#172033;
+    color:white;
+    text-align:center;
+    border-radius:20px;
+    padding:45px 20px;
+}
+
+.add-business h2{
+    margin-bottom:10px;
+}
+
+.add-business p{
+    color:#cbd5e1;
+    margin-bottom:20px;
+}
+
+.main-btn{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:13px 25px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.weather{
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    text-align:center;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.temperature{
+    font-size:45px;
+    font-weight:bold;
+    color:#2563eb;
+    margin:10px 0;
+}
+
+.about-box{
+    max-width:800px;
+    margin:auto;
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+    text-align:center;
+}
+
+.about-box h2{
+    margin-bottom:10px;
+}
+
+.about-box p{
+    color:#64748b;
+    line-height:1.7;
+    margin-top:12px;
+}
+
+.form-box{
+    max-width:650px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.form-box h3{
+    margin-bottom:20px;
+    text-align:center;
+}
+
+.form-box input,
+.form-box select,
+.form-box textarea{
+    width:100%;
+    padding:13px;
+    margin-bottom:12px;
+    border:1px solid #d8dee8;
+    border-radius:8px;
+    outline:none;
+}
+
+.form-box textarea{
+    height:120px;
+    resize:vertical;
+}
+
+.form-box button{
+    width:100%;
+    padding:14px;
+    border:none;
+    background:#2563eb;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    z-index:1000;
+    padding:20px;
+    overflow:auto;
+}
+
+.modal-content{
+    max-width:650px;
+    margin:50px auto;
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    right:20px;
+    top:15px;
+    font-size:28px;
+    cursor:pointer;
+}
+
+.status{
+    text-align:center;
+    margin-top:15px;
+    font-weight:bold;
+}
+
+footer{
+    background:#0f172a;
+    color:white;
+    padding:35px 7%;
+    text-align:center;
+    margin-top:30px;
+}
+
+footer p{
+    color:#94a3b8;
+    margin-top:8px;
+}
+
+@media(max-width:600px){
+
+    header h1{
+        font-size:27px;
+    }
+
+    .hero h2{
+        font-size:25px;
+    }
+
+    .search-box{
+        flex-direction:column;
+        border-radius:15px;
+        gap:8px;
+    }
+
+    .search-box input{
+        width:100%;
+    }
+
+    .search-box button{
+        padding:13px;
+    }
+
+    .modal-content{
+        margin:20px auto;
+        padding:22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <h1>📍 Bhagsar City</h1>
+
+    <p>Local Business & Services Directory</p>
+
+    <p class="developer">
+        Founded & Developed by <strong>Rehzaf John</strong>
+    </p>
+
+    <p class="developer">
+        Sabzani Bhagsar, Rajanpur, Punjab, Pakistan 🇵🇰
+    </p>
+
+</header>
+
+
+<nav>
+
+    <a href="#home">Home</a>
+    <a href="#categories">Categories</a>
+    <a href="#businesses">Businesses</a>
+    <a href="#about">About</a>
+    <a href="#weather">Weather</a>
+    <a href="#contact">Contact</a>
+
+</nav>
+
+
+<section class="hero" id="home">
+
+    <h2>Find Local Services in Bhagsar</h2>
+
+    <p>
+        Search shops, plumbers, tailors, salons, electricians,
+        restaurants and other local services.
+    </p>
+
+    <div class="search-box">
+
+        <input
+            id="searchInput"
+            type="text"
+            placeholder="Search business, person or category..."
+            onkeyup="searchBusinesses()"
+        >
+
+        <button onclick="searchBusinesses()">
+            Search
+        </button>
+
+    </div>
+
+</section>
+
+
+<section id="categories">
+
+    <div class="section-title">
+
+        <h2>Popular Categories</h2>
+
+        <p>Find the service you need</p>
+
+    </div>
+
+    <div class="categories">
+
+        <div class="category" onclick="filterCategory('Salon')">
+            <div class="icon">💇</div>
+            <h3>Salon</h3>
+        </div>
+
+        <div class="category" onclick="filterCategory('Tailor')">
+            <div class="icon">🧵</div>
+            <h3>Tailor</h3>
+        </div>
+
+        <div class="category" onclick="filterCategory('Plumber')">
+            <div class="icon">🔧</div>
+            <h3>Plumber</h3>
+        </div>
+
+        <div class="category" onclick="filterCategory('Electrician')">
+            <div class="icon">⚡</div>
+            <h3>Electrician</h3>
+        </div>
+
+        <div class="category" onclick="filterCategory('Restaurant')">
+            <div class="icon">🍔</div>
+            <h3>Restaurant</h3>
+        </div>
+
+        <div class="category" onclick="filterCategory('Mobile Shop')">
+            <div class="icon">📱</div>
+            <h3>Mobile Shop</h3>
+        </div>
+
+        <div class="category" onclick="filterCategory('Mechanic')">
+            <div class="icon">🚗</div>
+            <h3>Mechanic</h3>
+        </div>
+
+        <div class="category" onclick="filterCategory('Grocery')">
+            <div class="icon">🛒</div>
+            <h3>Grocery</h3>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="businesses">
+
+    <div class="section-title">
+
+        <h2>🏪 Local Businesses</h2>
+
+        <p>Businesses and services in Sabzani Bhagsar</p>
+
+    </div>
+
+    <div class="business-grid" id="businessGrid"></div>
+
+</section>
+
+
+<section>
+
+    <div class="add-business">
+
+        <h2>🏪 Do You Own a Business?</h2>
+
+        <p>
+            Want your shop or service listed on Bhagsar City Directory?
+        </p>
+
+        <button class="main-btn" onclick="openAddBusiness()">
+            + Add Your Business
+        </button>
+
+    </div>
+
+</section>
+
+
+<section id="about">
+
+    <div class="section-title">
+
+        <h2>About Bhagsar City Directory</h2>
+
+        <p>Connecting people with local businesses</p>
+
+    </div>
+
+    <div class="about-box">
+
+        <h2>👨‍💻 Rehzaf John</h2>
+
+        <p>
+            Founder & Web Developer
+        </p>
+
+        <p>
+            Bhagsar City Directory is a local platform created to
+            help people easily find businesses, shops, professionals
+            and services in Sabzani Bhagsar, Rajanpur, Punjab, Pakistan.
+        </p>
+
+        <p>
+            Our goal is to connect local customers with local businesses
+            in one simple and useful online directory.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section id="weather">
+
+    <div class="section-title">
+
+        <h2>🌤️ Bhagsar Weather</h2>
+
+        <p>Weather section</p>
+
+    </div>
+
+    <div class="weather">
+
+        <div style="font-size:45px;">☀️</div>
+
+        <div class="temperature">
+            Weather
+        </div>
+
+        <p>
+            Sabzani Bhagsar, Rajanpur, Punjab, Pakistan
+        </p>
+
+        <p style="margin-top:10px;color:#64748b;">
+            Live weather API can be connected later.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section id="contact">
+
+    <div class="section-title">
+
+        <h2>📧 Contact Rehzaf John</h2>
+
+        <p>
+            Send a message to the website owner
+        </p>
+
+    </div>
+
+    <div class="form-box">
+
+        <form onsubmit="sendOwnerMessage(event)">
+
+            <input
+                id="ownerName"
+                type="text"
+                placeholder="Your Name"
+                required
+            >
+
+            <input
+                id="ownerPhone"
+                type="tel"
+                placeholder="Your Phone Number"
+                required
+            >
+
+            <input
+                id="ownerEmail"
+                type="email"
+                placeholder="Your Email (optional)"
+            >
+
+            <textarea
+                id="ownerMessage"
+                placeholder="Your Message"
+                required
+            ></textarea>
+
+            <button type="submit">
+                Send Message
+            </button>
+
+            <div id="ownerStatus" class="status"></div>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <h3>📍 Bhagsar City Directory</h3>
+
+    <p>
+        Sabzani Bhagsar, Rajanpur, Punjab, Pakistan 🇵🇰
+    </p>
+
+    <p>
+        Founded & Developed by <strong>Rehzaf John</strong>
+    </p>
+
+    <p>
+        © 2026 Bhagsar City Directory. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<!-- BUSINESS CONTACT MODAL -->
+
+<div class="modal" id="businessModal">
+
+    <div class="modal-content">
+
+        <span class="close" onclick="closeModal('businessModal')">
+            &times;
+        </span>
+
+        <h2>📞 Contact Business</h2>
+
+        <p style="margin:10px 0 20px;color:#64748b;">
+            Business: <strong id="selectedBusiness"></strong>
+        </p>
+
+        <form onsubmit="sendBusinessRequest(event)">
+
+            <input
+                id="customerName"
+                type="text"
+                placeholder="Your Name"
+                required
+            >
+
+            <input
+                id="customerPhone"
+                type="tel"
+                placeholder="Your Phone Number"
+                required
+            >
+
+            <input
+                id="customerEmail"
+                type="email"
+                placeholder="Your Email (optional)"
+            >
+
+            <textarea
+                id="customerMessage"
+                placeholder="What service do you need?"
+                required
+            ></textarea>
+
+            <button type="submit">
+                Send Contact Request
+            </button>
+
+            <div id="businessStatus" class="status"></div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ADD BUSINESS MODAL -->
+
+<div class="modal" id="addBusinessModal">
+
+    <div class="modal-content">
+
+        <span class="close" onclick="closeModal('addBusinessModal')">
+            &times;
+        </span>
+
+        <h2>➕ Add Your Business</h2>
+
+        <p style="margin:10px 0 20px;color:#64748b;">
+            Send your business details to Rehzaf John.
+            After checking the information, the business can be added
+            to the directory.
+        </p>
+
+        <form onsubmit="sendAddBusiness(event)">
+
+            <input
+                id="newOwnerName"
+                type="text"
+                placeholder="Owner / Person Name"
+                required
+            >
+
+            <input
+                id="newBusinessName"
+                type="text"
+                placeholder="Business / Shop Name"
+                required
+            >
+
+            <select id="newCategory" required>
+
+                <option value="">Select Category</option>
+
+                <option>Salon</option>
+                <option>Tailor</option>
+                <option>Plumber</option>
+                <option>Electrician</option>
+                <option>Restaurant</option>
+                <option>Mobile Shop</option>
+                <option>Mechanic</option>
+                <option>Grocery</option>
+                <option>Other</option>
+
+            </select>
+
+            <input
+                id="newPhone"
+                type="tel"
+                placeholder="Phone Number"
+                required
+            >
+
+            <input
+                id="newWhatsapp"
+                type="tel"
+                placeholder="WhatsApp Number"
+            >
+
+            <input
+                id="newAddress"
+                type="text"
+                placeholder="Business Address / Location"
+                required
+            >
+
+            <textarea
+                id="newDescription"
+                placeholder="Business Description"
+                required
+            ></textarea>
+
+            <button type="submit">
+                Submit Business
+            </button>
+
+            <div id="businessAddStatus" class="status"></div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/*
+====================================================
+IMPORTANT SETTINGS
+====================================================
+
+1. Neeche ADMIN_EMAIL mein apna email add karein.
+
+Example:
+
+const ADMIN_EMAIL = "yourname@gmail.com";
+
+2. FormSubmit isi email par forms bhejega.
+
+====================================================
+*/
+
+const ADMIN_EMAIL = "YOUR_EMAIL@gmail.com";
+
+
+/* BUSINESS DATA */
+
+const businesses = [
+
+    {
+        name:"Ali Hair Salon",
+        owner:"Muhammad Ali",
+        category:"Salon",
+        phone:"0300-1234567",
+        whatsapp:"03001234567",
+        location:"Main Bazar, Sabzani Bhagsar",
+        rating:"4.5",
+        icon:"💇"
+    },
+
+    {
+        name:"Bhagsar Tailors",
+        owner:"Ahmed Khan",
+        category:"Tailor",
+        phone:"0301-7654321",
+        whatsapp:"03017654321",
+        location:"City Market, Sabzani Bhagsar",
+        rating:"4.7",
+        icon:"🧵"
+    },
+
+    {
+        name:"Usman Plumbing Service",
+        owner:"Muhammad Usman",
+        category:"Plumber",
+        phone:"0302-1112233",
+        whatsapp:"03021112233",
+        location:"Sabzani Bhagsar",
+        rating:"4.8",
+        icon:"🔧"
+    },
+
+    {
+        name:"Rana Electric Store",
+        owner:"Rana Ahmed",
+        category:"Electrician",
+        phone:"0303-5556677",
+        whatsapp:"03035556677",
+        location:"Main Road, Sabzani Bhagsar",
+        rating:"4.4",
+        icon:"⚡"
+    },
+
+    {
+        name:"Bhagsar Fast Food",
+        owner:"Bilal Ahmed",
+        category:"Restaurant",
+        phone:"0304-8889900",
+        whatsapp:"03048889900",
+        location:"City Center, Sabzani Bhagsar",
+        rating:"4.6",
+        icon:"🍔"
+    },
+
+    {
+        name:"Smart Mobile Zone",
+        owner:"Hassan Ali",
+        category:"Mobile Shop",
+        phone:"0305-2223344",
+        whatsapp:"03052223344",
+        location:"Main Market, Sabzani Bhagsar",
+        rating:"4.3",
+        icon:"📱"
+    },
+
+    {
+        name:"Bhagsar Auto Workshop",
+        owner:"Nadeem Khan",
+        category:"Mechanic",
+        phone:"0306-4445566",
+        whatsapp:"03064445566",
+        location:"Near Bus Stand, Sabzani Bhagsar",
+        rating:"4.7",
+        icon:"🚗"
+    },
+
+    {
+        name:"City General Store",
+        owner:"Sajid Hussain",
+        category:"Grocery",
+        phone:"0307-7778899",
+        whatsapp:"03077778899",
+        location:"Old Market, Sabzani Bhagsar",
+        rating:"4.5",
+        icon:"🛒"
+    }
+
+];
+
+
+/* DISPLAY BUSINESSES */
+
+function displayBusinesses(list){
+
+    const grid=document.getElementById("businessGrid");
+
+    grid.innerHTML="";
+
+    if(list.length===0){
+
+        grid.innerHTML=`
+            <div style="
+                grid-column:1/-1;
+                text-align:center;
+                padding:30px;
+                background:white;
+                border-radius:15px;
+            ">
+                <h3>No business found</h3>
+                <p style="margin-top:8px;color:#64748b;">
+                    Try another name or category.
+                </p>
+            </div>
+        `;
+
+        return;
+    }
+
+
+    list.forEach((business,index)=>{
+
+        grid.innerHTML+=`
+
+            <div class="business-card">
+
+                <div class="business-icon">
+                    ${business.icon}
+                </div>
+
+                <h3>
+                    ${business.name}
+                </h3>
+
+                <div class="category-name">
+                    ${business.category}
+                </div>
+
+                <div class="info">
+                    👤 Owner: ${business.owner}
+                </div>
+
+                <div class="info">
+                    📍 ${business.location}
+                </div>
+
+                <div class="info">
+                    📞 ${business.phone}
+                </div>
+
+                <div class="rating">
+                    ⭐ ${business.rating} / 5
+                </div>
+
+                <div class="buttons">
+
+                    <a
+                        class="call-btn"
+                        href="tel:${business.phone}"
+                    >
+                        📞 Call
+                    </a>
+
+                    <a
+                        class="whatsapp-btn"
+                        href="https://wa.me/${business.whatsapp}"
+                        target="_blank"
+                    >
+                        💬 WhatsApp
+                    </a>
+
+                    <a
+                        class="location-btn"
+                        href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(business.location)}"
+                        target="_blank"
+                    >
+                        📍 Map
+                    </a>
+
+                    <button
+                        class="contact-btn"
+                        onclick="openBusinessContact(${index})"
+                    >
+                        ✉️ Contact
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+
+/* SEARCH */
+
+function searchBusinesses(){
+
+    const search=
+        document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+
+    const results=businesses.filter(business=>
+
+        business.name.toLowerCase().includes(search) ||
+
+        business.owner.toLowerCase().includes(search) ||
+
+        business.category.toLowerCase().includes(search) ||
+
+        business.location.toLowerCase().includes(search)
+
+    );
+
+
+    displayBusinesses(results);
+
+}
+
+
+/* CATEGORY */
+
+function filterCategory(category){
+
+    document
+        .getElementById("businesses")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+
+    const results=businesses.filter(
+        business=>business.category===category
+    );
+
+
+    displayBusinesses(results);
+
+}
+
+
+/* OPEN BUSINESS CONTACT */
+
+let selectedBusiness="";
+
+
+function openBusinessContact(index){
+
+    selectedBusiness=businesses[index].name;
+
+    document.getElementById("selectedBusiness").textContent=
+        selectedBusiness;
+
+    document.getElementById("businessModal").style.display="block";
+
+}
+
+
+/* ADD BUSINESS */
+
+function openAddBusiness(){
+
+    document.getElementById("addBusinessModal").style.display="block";
+
+}
+
+
+/* CLOSE MODAL */
+
+function closeModal(id){
+
+    document.getElementById(id).style.display="none";
+
+}
+
+
+/* CLOSE MODAL WHEN CLICKING OUTSIDE */
+
+window.onclick=function(event){
+
+    if(event.target.classList.contains("modal")){
+
+        event.target.style.display="none";
+
+    }
+
+};
+
+
+/* GENERIC EMAIL SENDER */
+
+async function sendFormEmail(data,statusElement){
+
+    if(ADMIN_EMAIL==="fao099853@gmail.com"){
+
+        statusElement.style.color="red";
+
+        statusElement.textContent=
+            "Please add your email in the ADMIN_EMAIL setting first.";
+
+        return false;
+
+    }
+
+
+    try{
+
+        const response=await fetch(
+            "https://formsubmit.co/ajax/"+encodeURIComponent(ADMIN_EMAIL),
+            {
+                method:"POST",
+
+                headers:{
+                    "Content-Type":"application/json",
+                    "Accept":"application/json"
+                },
+
+                body:JSON.stringify(data)
+            }
+        );
+
+
+        const result=await response.json();
+
+
+        if(response.ok){
+
+            statusElement.style.color="green";
+
+            statusElement.textContent=
+                "Message sent successfully. Thank you!";
+
+            return true;
+
+        }else{
+
+            statusElement.style.color="red";
+
+            statusElement.textContent=
+                "Message could not be sent. Please try again.";
+
+            return false;
+
+        }
+
+    }catch(error){
+
+        statusElement.style.color="red";
+
+        statusElement.textContent=
+            "Internet/API error. Please try again.";
+
+        return false;
+
+    }
+
+}
+
+
+/* CUSTOMER CONTACTS A BUSINESS */
+
+async function sendBusinessRequest(event){
+
+    event.preventDefault();
+
+
+    const status=
+        document.getElementById("businessStatus");
+
+
+    const data={
+
+        _subject:
+            "New Business Contact Request - Bhagsar City",
+
+        request_type:
+            "Customer wants to contact a local business",
+
+        business_name:
+            selectedBusiness,
+
+        customer_name:
+            document.getElementById("customerName").value,
+
+        customer_phone:
+            document.getElementById("customerPhone").value,
+
+        customer_email:
+            document.getElementById("customerEmail").value,
+
+        message:
+            document.getElementById("customerMessage").value,
+
+        location:
+            "Sabzani Bhagsar, Rajanpur, Punjab, Pakistan",
+
+        website_owner:
+            "Rehzaf John"
+
+    };
+
+
+    const success=
+        await sendFormEmail(data,status);
+
+
+    if(success){
+
+        document
+            .querySelector("#businessModal form")
+            .reset();
+
+    }
+
+}
+
+
+/* CUSTOMER WANTS TO ADD BUSINESS */
+
+async function sendAddBusiness(event){
+
+    event.preventDefault();
+
+
+    const status=
+        document.getElementById("businessAddStatus");
+
+
+    const data={
+
+        _subject:
+            "New Business Listing Request - Bhagsar City",
+
+        request_type:
+            "Someone wants to add a business",
+
+        owner_name:
+            document.getElementById("newOwnerName").value,
+
+        business_name:
+            document.getElementById("newBusinessName").value,
+
+        category:
+            document.getElementById("newCategory").value,
+
+        phone:
+            document.getElementById("newPhone").value,
+
+        whatsapp:
+            document.getElementById("newWhatsapp").value,
+
+        address:
+            document.getElementById("newAddress").value,
+
+        description:
+            document.getElementById("newDescription").value,
+
+        location:
+            "Sabzani Bhagsar, Rajanpur, Punjab, Pakistan",
+
+        website_owner:
+            "Rehzaf John"
+
+    };
+
+
+    const success=
+        await sendFormEmail(data,status);
+
+
+    if(success){
+
+        document
+            .querySelector("#addBusinessModal form")
+            .reset();
+
+    }
+
+}
+
+
+/* CONTACT REHZAF JOHN */
+
+async function sendOwnerMessage(event){
+
+    event.preventDefault();
+
+
+    const status=
+        document.getElementById("ownerStatus");
+
+
+    const data={
+
+        _subject:
+            "New Message for Rehzaf John - Bhagsar City",
+
+        request_type:
+            "General Contact Message",
+
+        name:
+            document.getElementById("ownerName").value,
+
+        phone:
+            document.getElementById("ownerPhone").value,
+
+        email:
+            document.getElementById("ownerEmail").value,
+
+        message:
+            document.getElementById("ownerMessage").value,
+
+        website:
+            "Bhagsar City Directory",
+
+        location:
+            "Sabzani Bhagsar, Rajanpur, Punjab, Pakistan"
+
+    };
+
+
+    const success=
+        await sendFormEmail(data,status);
+
+
+    if(success){
+
+        document
+            .querySelector("#contact form")
+            .reset();
+
+    }
+
+}
+
+
+/* LOAD BUSINESSES */
+
+displayBusinesses(businesses);
+
+</script>
+
+</body>
+</html>
+```
