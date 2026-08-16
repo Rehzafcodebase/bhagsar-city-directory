@@ -516,6 +516,10 @@ footer p{
             <div class="icon">⚡</div>
             <h3>Electrician</h3>
         </div>
+        <div class="category" onclick="filterCategory('Business')">
+            <div class="icon">⚡</div>
+            <h3>Business</h3>
+        </div>
 
         <div class="category" onclick="filterCategory('Restaurant')">
             <div class="icon">🍔</div>
@@ -890,8 +894,8 @@ const businesses = [
         name:"Ali Hair Salon",
         owner:"Muhammad Ali",
         category:"Salon",
-        phone:"0300-1234567",
-        whatsapp:"03001234567",
+        phone:"+92 330 1576969",
+        whatsapp:"+92 330 1576969",
         location:"Main Bazar, Sabzani Bhagsar",
         rating:"4.5",
         icon:"💇"
@@ -899,10 +903,10 @@ const businesses = [
 
     {
         name:"Bhagsar Tailors",
-        owner:"Ahmed Khan",
+        owner:"Nadir Cf",
         category:"Tailor",
-        phone:"0301-7654321",
-        whatsapp:"03017654321",
+        phone:"+92 330 1816688",
+        whatsapp:"+92 330 1816688",
         location:"City Market, Sabzani Bhagsar",
         rating:"4.7",
         icon:"🧵"
@@ -910,10 +914,10 @@ const businesses = [
 
     {
         name:"Usman Plumbing Service",
-        owner:"Muhammad Usman",
+        owner:"Shakir ",
         category:"Plumber",
-        phone:"0302-1112233",
-        whatsapp:"03021112233",
+        phone:"+92 331 3978711",
+        whatsapp:"+92 331 3978711",
         location:"Sabzani Bhagsar",
         rating:"4.8",
         icon:"🔧"
@@ -923,31 +927,41 @@ const businesses = [
         name:"Rana Electric Store",
         owner:"Rana Ahmed",
         category:"Electrician",
-        phone:"0303-5556677",
-        whatsapp:"03035556677",
+        phone:"+92 336 1505859",
+        whatsapp:"+92 336 1505859",
         location:"Main Road, Sabzani Bhagsar",
         rating:"4.4",
         icon:"⚡"
     },
+    {
+        name:"Online Business",
+        owner:"Faraz Ahmad",
+        category:"Business Man",
+        phone:"+92 335 3142244",
+        whatsapp:"+92 335 3142244",
+        location:"Rehzaf Bridge",
+        rating:"5",
+        icon:"⚡"
+    },
 
     {
-        name:"Bhagsar Fast Food",
-        owner:"Bilal Ahmed",
+        name:"Bhagsar Cold Drink",
+        owner:"Rais Aslam",
         category:"Restaurant",
-        phone:"0304-8889900",
-        whatsapp:"03048889900",
-        location:"City Center, Sabzani Bhagsar",
+        phone:"+92 330 1576969",
+        whatsapp:"+92 330 1576969",
+        location:"R6P4+GQF",
         rating:"4.6",
         icon:"🍔"
     },
 
     {
         name:"Smart Mobile Zone",
-        owner:"Hassan Ali",
+        owner:"Amir Jarah",
         category:"Mobile Shop",
-        phone:"0305-2223344",
-        whatsapp:"03052223344",
-        location:"Main Market, Sabzani Bhagsar",
+        phone:"+92 336 7074739",
+        whatsapp:"+92 336 7074739",
+        location:"",
         rating:"4.3",
         icon:"📱"
     },
@@ -1186,10 +1200,22 @@ window.onclick=function(event){
 
 async function sendFormEmail(data,statusElement){
 
+    if(ADMIN_EMAIL==="fao099853@gmail.com"){
+
+        statusElement.style.color="red";
+
+        statusElement.textContent=
+            "Please add your email in the ADMIN_EMAIL setting first.";
+
+        return false;
+
+    }
+
+
     try{
 
-        const response = await fetch(
-            "https://formspree.io/f/xankokjk",
+        const response=await fetch(
+            "https://formsubmit.co/ajax/"+encodeURIComponent(ADMIN_EMAIL),
             {
                 method:"POST",
 
@@ -1201,6 +1227,10 @@ async function sendFormEmail(data,statusElement){
                 body:JSON.stringify(data)
             }
         );
+
+
+        const result=await response.json();
+
 
         if(response.ok){
 
@@ -1234,6 +1264,8 @@ async function sendFormEmail(data,statusElement){
     }
 
 }
+
+
 /* CUSTOMER CONTACTS A BUSINESS */
 
 async function sendBusinessRequest(event){
